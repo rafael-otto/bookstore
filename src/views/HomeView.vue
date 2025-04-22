@@ -106,32 +106,5 @@ const produtos = [
 </template>
 
 <style scoped>
-  /* main {
-    margin: 0 8vw 0 8vw;
-  }
 
-  .autorMes {
-    padding: 0.8vw 0.2vw 0.8vw 0.2vw;
-    text-align: center;
-    border-radius: 3px;
-    border: 1.5px solid #27AE60;
-    width: 10vw;
-    color: #27AE60;
-    font-size: 1.1rem;
-  }
-
-  .text {
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    p{
-      color: #4D4C4C;
-    }
-  }
-
-  .image img {
-
-  } */
 </style>
