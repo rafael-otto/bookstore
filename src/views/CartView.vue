@@ -10,7 +10,8 @@ const livros = ref([
         titulo: "Chain of Iron: Volume 2",
         autor: "Cassandra Clare",
         preco: 23.24,
-        quantidade: 0
+        quantidade: 0,
+        capa: 'https://m.media-amazon.com/images/I/81IP261kwlL._AC_UF1000,1000_QL80_.jpg',
     },
     {
         id: 2,
@@ -18,7 +19,8 @@ const livros = ref([
         titulo: "Chain of Thorns",
         autor: "Cassandra Clare",
         preco: 46.48,
-        quantidade: 0
+        quantidade: 0,
+        capa: 'https://m.media-amazon.com/images/I/91298Zw5GdL._AC_UF1000,1000_QL80_.jpg',
     }
 ]);
 </script>
@@ -38,7 +40,7 @@ const livros = ref([
         <tbody>
           <tr>
             <td>
-              <img :src="livro.img" alt="">
+              <img :src="livro.capa" alt="">
               <div>
                 <h3>{{ livro.titulo }}</h3>
                 <p>{{ livro.autor }}</p>
