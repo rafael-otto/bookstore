@@ -41,13 +41,15 @@ const produtos = [
         autor: 'Velma Wallis',
         preco: 13.95,
         capa: 'https://placehold.co/600x400.png',
-    },{
+    },
+    {
         id: 7,
         titulo: 'Carrie Soto Is Back',
         autor: 'Taylor Jenkins Reid',
         preco: 26.04,
         capa: 'https://placehold.co/600x400.png',
-    },{
+    },
+    {
         id: 8,
         titulo: 'Book Lovers',
         autor: 'Emily Henry',
@@ -102,3 +104,4 @@ const produtos = [
       </div>
     </section>
   </main>
+</template>
