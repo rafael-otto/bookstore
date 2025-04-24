@@ -101,10 +101,4 @@ const produtos = [
         <button><span><font-awesome-icon icon="fa-solid fa-cart-shopping" /></span>Comprar</button>
       </div>
     </section>
-
   </main>
-</template>
-
-<style scoped>
-
-</style>
