@@ -15,13 +15,13 @@
         <div>
             <ul>
                 <li>
-                    <a href=""><img src="../../public/header img/Icon.png" alt=""></a>
+                    <a href=""><img src="../../public/header-img/Icon.png" alt=""></a>
                 </li>
                 <li>
-                    <a href=""><img src="../../public/header img/Icon2.png" alt=""></a>
+                    <a href=""><img src="../../public/header-img/Icon2.png" alt=""></a>
                 </li>
                 <li>
-                    <a href=""><img src="../../public/header img/Icon3.png" alt=""></a>
+                    <a href=""><img src="../../public/header-img/Icon3.png" alt=""></a>
                 </li>
             </ul>
         </div>

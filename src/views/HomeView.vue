@@ -1,11 +1,13 @@
 <script setup>
-import HeaderView from '../components/HeaderView.vue';
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 </script>
 
 <template>
   <main>
-    <HeaderView />
+    <HeaderComponent />
     <h1>This is home page</h1>
     <TheWelcome />
+    <FooterComponent />
   </main>
 </template>
