@@ -28,7 +28,5 @@
     </header>
 </template>
 <style scoped>
-    header {
-        font-size: 2vw;
-    }
+    
 </style>
