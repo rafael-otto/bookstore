@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const frete = ref(0);
+//let total = ref(0);
 
 const livros = ref([
     {
@@ -23,6 +24,17 @@ const livros = ref([
         capa: 'https://m.media-amazon.com/images/I/91298Zw5GdL._AC_UF1000,1000_QL80_.jpg',
     }
 ]);
+
+/*for (let index = 0; index < livros.value.length; index++) {
+  total.value += livros.value[index].preco * livros.value[index].quantidade;
+  /*console.log("Preço" + livros[index].preco);
+  console.log("Quantidade" + livros[index].quantidade);
+  console.log(livros.value[index].preco)
+}*/
+
+const total = computed(() => {
+  return livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
+});
 </script>
 <template>
     <div class="about">
@@ -66,16 +78,16 @@ const livros = ref([
       </div>
       <div id="total" style="border: 1px solid black;">
         <h3>Total da Compra</h3>
-        <ul v-for="(livro, id) in livros" :key="id">
+        <ul>
           <li>
-            <p>Produtos: {{ (livro.preco * livro.quantidade).toFixed(2) }}</p>
+            <p>Produtos: R$ {{ total.toFixed(2).replace(".", ",") }}</p>
           </li>
           <li>
             <p v-if="frete == 0">Frete: GRÁTIS</p>
             <p v-else>Frete: {{ frete }}</p>
           </li>
           <li>
-            <p>Total: R$ {{ (livro.preco * livro.quantidade + frete).toFixed(2) }}</p>
+            <p>Total: R$ {{ total.toFixed(2).replace(".", ",") }}</p>
           </li>
         </ul>
         <button>Ir para o pagamento</button>
