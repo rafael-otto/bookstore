@@ -78,7 +78,7 @@ const produtos = [
       </div>
 
       <div class="image">
-        <img src="" alt="Livro" />
+        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1724071848i/32572089.jpg" alt="Livro">
       </div>
     </section>
     <section class="barraCentral">
@@ -100,7 +100,7 @@ const produtos = [
     <section class="books">
       <h2>Lançamentos</h2>
       <div v-for="book in produtos" :key="book.id" class="book">
-        <img src="" alt="" />
+        <img :src="book.capa" alt="">
         <p class="title">{{ book.titulo }}</p>
         <p class="autor">{{ book.autor }}</p>
         <p class="price">R$ {{ book.preco }}</p>
