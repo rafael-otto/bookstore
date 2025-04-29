@@ -2,7 +2,6 @@
 import { ref, computed } from 'vue';
 
 const frete = ref(0);
-//let total = ref(0);
 
 const livros = ref([
     {
@@ -23,15 +22,15 @@ const livros = ref([
     }
 ]);
 
-/*for (let index = 0; index < livros.value.length; index++) {
-  total.value += livros.value[index].preco * livros.value[index].quantidade;
-  /*console.log("Preço" + livros[index].preco);
-  console.log("Quantidade" + livros[index].quantidade);
-  console.log(livros.value[index].preco)
-}*/
+const texto = ref('');
 
 const total = computed(() => {
-  return livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
+   return livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
+});
+
+const desconto = computed(() => {
+   let subtotal = livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
+   return texto.value.toLowerCase() == "lrv10" ? subtotal - subtotal * 0.1 : subtotal;
 });
 </script>
 <template>
@@ -71,8 +70,10 @@ const total = computed(() => {
     <router-link to="/" exact><button>Voltar pra loja</button></router-link>
     <section style="display: flex;">
       <div>
-        <input type="text">
-        <button>Inserir Cupom</button>
+        <input 
+        type="text"
+        v-model="texto">
+        <button type="submit">Inserir Cupom</button>
       </div>
       <div id="total" style="border: 1px solid black;">
         <h3>Total da Compra</h3>
@@ -85,10 +86,10 @@ const total = computed(() => {
             <p v-else>Frete: {{ frete }}</p>
           </li>
           <li>
-            <p>Total: R$ {{ total.toFixed(2).replace(".", ",") }}</p>
+            <p>Total: R$ {{ desconto.toFixed(2).replace(".", ",") }}</p>
           </li>
         </ul>
-        <button>Ir para o pagamento</button>
+        <a href="https://www.mercadopago.com.br/pix/home#from-section=menu"><button>Ir para o pagamento</button></a>
       </div>
     </section>
   </template>
