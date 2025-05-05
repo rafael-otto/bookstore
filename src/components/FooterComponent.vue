@@ -56,6 +56,7 @@ footer {
     background-color: #27AE60;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: none;
 }
 .geral {
     display: flex;
