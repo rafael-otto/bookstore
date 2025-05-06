@@ -108,18 +108,25 @@ h1 {
   font-weight: 500;
   margin-bottom: 2vw;
 }
+table{
+  border: 1px solid green!important;
+}
+table tr{
+  border: 1px solid green!important;
+}
 .table {
   thead {
     border-bottom: 1px solid #27ae60;
+    tr {
+      
+      color: blueviolet;
+    }
       th {
       font-weight: bold;
     }
   }
-  hr {
-    border-color: hsl(145, 63%, 42%, 0.5);
-    width: 50vw;
-  }
-  tbody {
+  tbody {  
+    border: 1px solid green!important;
     img {
       margin-top: 1vw;
       height: 6vw;
