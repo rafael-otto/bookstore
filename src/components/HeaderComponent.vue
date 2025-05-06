@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="logotipo">
-            <h1>IF Books</h1>
+            <h1>IFbooks</h1>
             <hr>
             <h3>Apreço a<br>leitura</h3>
         </div>
@@ -23,10 +23,12 @@
                     <a href=""><img src="../../public/header-img/Icon.png"
                             alt="icone de direcionamento para o carrinho de compras"></a>
                 </li>
+                <hr>
                 <li>
                     <a href=""><img src="../../public/header-img/Icon2.png"
                             alt="icone de direcionamento para os produtos favoritos"></a>
                 </li>
+                <hr>
                 <li>
                     <a href=""><img src="../../public/header-img/Icon3.png"
                             alt="icone de direcionamento para a página do usuário"></a>
@@ -37,8 +39,7 @@
 </template>
 <style scoped>
 header {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 1vw 5vw 1vw 5vw;
+    margin: 1vw 6vw 1vw 6vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,26 +51,24 @@ header {
 }
 .logotipo h1 {
     padding-right: 0.5vw;
+    font-size: 1.3rem;
 }
 .logotipo hr {
     border: 1px solid #27AE60;
-    height: 32px;
+    height: 35px;
 }
 .logotipo h3 {
     padding-left: 0.5vw;
     color: rgba(39, 174, 96, 0.6);
 }
 /*Pesquisar*/
-.barrapesquisa {
-    padding-left: 5vw;
-}
 .barrapesquisa input,
 .barrapesquisa button {
     border: none;
 }
 .barrapesquisa input {
     background-color: #f1f1f1;
-    padding: 0.4vw 5vw 0.4vw 0.4vw;
+    padding: 0.6vw 10vw 0.6vw 1vw;
     font-size: 1.1rem;
 
 }
@@ -78,6 +77,29 @@ header {
 }
 .barrapesquisa button {
     background-color: #00000000;
-    transform: translate(-2vw, 0.35vw);
+    transform: translate(-2.5vw, 0.35vw);
     }
+/*Opções*/
+.opcoes ul {
+    display: flex;
+}
+.opcoes ul li {
+    color: #7B7881;
+    padding: 0 4vw 0 0;
+    font-size: 1.2rem;
+}
+/*Direcionamentos*/
+.direcionamentos ul {
+    display: flex;
+}
+.direcionamentos ul li {
+    padding: 0 1.3vw 0 1.3vw;
+}
+.direcionamentos hr {
+    border: 1px solid #27AE60;
+    height: 20px;
+}
+.direcionamentos ul li img {
+    height: 1.5vw;
+}
 </style>
