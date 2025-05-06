@@ -38,18 +38,17 @@ const desconto = computed(() => {
 <template>
   <main>
     <h1>Carrinho</h1>
-    <section class="table" v-for="(livro, id) in livros" :key="id">
+    <section class="table" >
       <table>
         <thead>
-          <tr>
+          <tr >
             <th>Título</th>
             <th>Quantidade</th>
             <th>Subtotal</th>
           </tr>
         </thead>
-        <hr>
         <tbody>
-          <tr>
+          <tr v-for="(livro, id) in livros" :key="id">
             <td>
               <img :src="livro.capa" alt="" />
               <div class="infos">
@@ -98,27 +97,27 @@ const desconto = computed(() => {
 </template>
 <style scoped>
 main {
-  padding: 8.5vw;
+  margin: 10vw 5vw 10vw 5vw;
+  /*background-color: antiquewhite;*/
 
 }
 h1 {
   color: #27ae60;
   /*margin-top: 3.3vw;*/
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 2vw;
 }
 .table {
   thead {
     border-bottom: 1px solid #27ae60;
-    th {
-      text-align: left;
-      padding-left: 1.2vw;
+      th {
       font-weight: bold;
     }
   }
   hr {
     border-color: hsl(145, 63%, 42%, 0.5);
+    width: 50vw;
   }
   tbody {
     img {
