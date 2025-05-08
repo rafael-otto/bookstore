@@ -38,10 +38,10 @@ const desconto = computed(() => {
 <template>
   <main>
     <h1>Carrinho</h1>
-    <section class="table" >
+    <section class="table">
       <table>
         <thead>
-          <tr >
+          <tr>
             <th>Título</th>
             <th>Quantidade</th>
             <th>Subtotal</th>
@@ -54,12 +54,12 @@ const desconto = computed(() => {
                 <img :src="livro.capa" alt="" />
                 <div class="infos">
                   <h3>{{ livro.titulo }}</h3>
-                  <p style="font-size: small;">{{ livro.autor }}</p>
-                  <p style="font-weight: 600;">R$ {{ livro.preco }}</p>
+                  <p style="font-size: small">{{ livro.autor }}</p>
+                  <p style="font-weight: 600">R$ {{ livro.preco }}</p>
                 </div>
               </div>
             </td>
-            <td style="align-items: center;">
+            <td style="align-items: center">
               <div class="button">
                 <button v-if="livro.quantidade > 0" @click="livro.quantidade--">-</button>
                 <button v-else>-</button>
@@ -74,28 +74,31 @@ const desconto = computed(() => {
         </tbody>
       </table>
     </section>
-    <router-link to="/" exact><button>Voltar pra loja</button></router-link>
+    <router-link to="/" exact><button class="voltar">Voltar pra loja</button></router-link>
     <section style="display: flex">
-      <div>
-        <input type="text" v-model="texto" />
+      <div class="cupom">
+        <input type="text" v-model="texto" placeholder="Código do cupom" />
         <button type="submit">Inserir Cupom</button>
       </div>
       <div id="total" style="border: 1px solid black">
         <h3>Total da Compra</h3>
         <ul>
           <li>
-            <p>Produtos: R$ {{ total.toFixed(2).replace('.', ',') }}</p>
+            <p class="parametro">Produtos:</p>
+            <p>R$ {{ total.toFixed(2).replace('.', ',') }}</p>
           </li>
           <li>
-            <p v-if="frete == 0">Frete: GRÁTIS</p>
+            <p class="parametro">Frete:</p>
+            <p v-if="frete == 0">GRÁTIS</p>
             <p v-else>Frete: {{ frete }}</p>
           </li>
           <li>
-            <p>Total: R$ {{ desconto.toFixed(2).replace('.', ',') }}</p>
+            <p class="parametro">Total:</p>
+            <p>R$ {{ desconto.toFixed(2).replace('.', ',') }}</p>
           </li>
         </ul>
         <a href="https://www.mercadopago.com.br/pix/home#from-section=menu"
-          ><button>Ir para o pagamento</button></a
+        style="text-decoration: none;"><button>Ir para o pagamento</button></a
         >
       </div>
     </section>
@@ -111,7 +114,7 @@ h1 {
   font-weight: 500;
   margin-bottom: 2vw;
 }
-table{
+table {
   border-collapse: collapse;
   margin: 0 auto;
   width: 90vw;
@@ -129,7 +132,7 @@ thead {
     border-bottom: 1px solid #27ae60;
   }
 }
-tbody {  
+tbody {
   /*border: 1px solid green!important;*/
   tr td {
     border-bottom: 1px solid #c4c4c4;
@@ -168,6 +171,71 @@ tbody {
     padding-right: 5vw;
     font-weight: 700;
     font-size: 1.1rem;
+  }
+}
+.voltar {
+  margin: 2vw 0 0 0.5vw;
+  height: 3vw;
+  width: 14vw;
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+}
+.voltar:hover {
+  background-color: #27ae60;
+  color: white;
+}
+.cupom {
+  margin-top: 6vw;
+  input {
+    height: 3vw;
+    width: 20vw;
+    margin-right: 1vw;
+  }
+  ::placeholder {
+    padding-left: 1vw;
+  }
+  button {
+    color: white;
+    background-color: #27ae60;
+    height: 3vw;
+    width: 13vw;
+    border: none;
+    border-radius: 4px;
+  }
+}
+#total {
+  margin: 5vw 0 0 12vw;
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1vw;
+    text-align: left;
+    margin: 1vw 0 0 2vw;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+    border-bottom: 1px solid #c4c4c4;
+    margin-right: 2vw;
+  }
+  .parametro {
+    margin-right: 10vw;
+    padding-right: 7vw;
+  }
+  button {
+    color: white;
+    background-color: #27ae60;
+    height: 3vw;
+    width: 15vw;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: 2vw auto 2vw auto;
   }
 }
 </style>
