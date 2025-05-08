@@ -50,20 +50,26 @@ const desconto = computed(() => {
         <tbody>
           <tr v-for="(livro, id) in livros" :key="id">
             <td>
-              <img :src="livro.capa" alt="" />
-              <div class="infos">
-                <h3>{{ livro.titulo }}</h3>
-                <p>{{ livro.autor }}</p>
-                <p>R$ {{ livro.preco }}</p>
+              <div class="livro">
+                <img :src="livro.capa" alt="" />
+                <div class="infos">
+                  <h3>{{ livro.titulo }}</h3>
+                  <p style="font-size: small;">{{ livro.autor }}</p>
+                  <p style="font-weight: 600;">R$ {{ livro.preco }}</p>
+                </div>
               </div>
             </td>
-            <td style="display: flex">
-              <button v-if="livro.quantidade > 0" @click="livro.quantidade--">-</button>
-              <button v-else>-</button>
-              <p>{{ livro.quantidade }}</p>
-              <button @click="livro.quantidade++">+</button>
+            <td style="align-items: center;">
+              <div class="button">
+                <button v-if="livro.quantidade > 0" @click="livro.quantidade--">-</button>
+                <button v-else>-</button>
+                <p>{{ livro.quantidade }}</p>
+                <button @click="livro.quantidade++">+</button>
+              </div>
             </td>
-            <td>R$ {{ (livro.preco * livro.quantidade).toFixed(2) }}</td>
+            <td>
+              <p class="preco">R$ {{ (livro.preco * livro.quantidade).toFixed(2) }}</p>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -98,40 +104,70 @@ const desconto = computed(() => {
 <style scoped>
 main {
   margin: 10vw 5vw 10vw 5vw;
-  /*background-color: antiquewhite;*/
-
 }
 h1 {
   color: #27ae60;
-  /*margin-top: 3.3vw;*/
   font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 2vw;
 }
 table{
-  border: 1px solid green!important;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90vw;
+  height: 30vw;
 }
-table tr{
+/*table tr{
   border: 1px solid green!important;
-}
-.table {
-  thead {
+}*/
+thead {
+  /*tr {
+    color: blueviolet;
+  }*/
+  th {
+    font-weight: bold;
     border-bottom: 1px solid #27ae60;
-    tr {
-      
-      color: blueviolet;
+  }
+}
+tbody {  
+  /*border: 1px solid green!important;*/
+  tr td {
+    border-bottom: 1px solid #c4c4c4;
+  }
+  img {
+    margin: 1vw;
+    height: 6vw;
+    width: 4vw;
+  }
+  .livro {
+    display: flex;
+    padding: 1vw 0 1vw 0;
+    div {
+      padding: 1vw 14vw 0 0;
     }
-      th {
-      font-weight: bold;
+    div h3 {
+      font-weight: 500;
+      font-family: 0.3rem;
     }
   }
-  tbody {  
-    border: 1px solid green!important;
-    img {
-      margin-top: 1vw;
-      height: 6vw;
-      width: 4vw;
+  .button {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    height: 3vw;
+    button {
+      background-color: white;
+      border: none;
+      padding: 0 1.5vw 0 1.5vw;
+      cursor: pointer;
     }
+  }
+  .preco {
+    padding-left: 17vw;
+    padding-right: 5vw;
+    font-weight: 700;
+    font-size: 1.1rem;
   }
 }
 </style>
