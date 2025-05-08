@@ -68,12 +68,10 @@ const produtos = [
         </div>
         <h1>Eric-Emanuel Schmitt</h1>
         <p class="descricao">
-          Eric-Emmanuel Schmitt has been awarded more than 20 literary prizes and distinctions, and
-          in 2001 he received the title of Chevalier des Arts et des Lettres. His books have been
-          translated into over 40 languages.
+          Eric-Emmanuel Schmitt has been awarded more than 20 literary prizes and distinctions, and in 2001 he received the title of Chevalier des Arts et des Lettres. His books have been translated into over 40 languages.
         </p>
-        <div class="button">
-          <button>Acessar página do livro</button>
+        <div>
+          <button class="buttonBanner">Acessar página do livro</button>
         </div>
       </div>
 
@@ -106,13 +104,14 @@ const produtos = [
         <h2>Lançamentos</h2>
       </div>
       <div class="tabela">
-        <div v-for="book in produtos" :key="book.id" class="book">
-          <img :src="book.capa" alt="">
-          <p class="title">{{ book.titulo }}</p>
-          <p class="autor">{{ book.autor }}</p>
-          <p class="price">R$ {{ book.preco }}</p>
-          <button>
-            <span><font-awesome-icon icon="fa-solid fa-cart-shopping" /></span>Comprar
+        <div v-for="livro in produtos" :key="livro.id" class="livro">
+          <img :src="livro.capa" alt="">
+          <p class="titulo">{{ livro.titulo }}</p>
+          <p class="autor">{{ livro.autor }}</p>
+          <p class="preco">R$ {{ livro.preco }}</p>
+          <button class="botaoComprar">
+            <img src="../../public/home-img/cart.png" alt="comprar">
+            <p>Comprar</p>
           </button>
         </div>
       </div>
@@ -150,6 +149,21 @@ main {
           font-size: 1.1rem;
         }
       }
+
+
+        button.buttonBanner {
+          margin-top: 3vw;
+          padding: 1vw 1.5vw;
+          font-size: 1.1rem;
+          color: white;
+          border: none;
+          background-color: #27AE60;
+          cursor: pointer;
+        }
+
+        button.buttonBanner:hover {
+          background-color: #219752;
+        }
     }
 
     .image {
@@ -165,7 +179,7 @@ main {
     padding: 3vw 0 3vw 0;
     border-bottom: 1px solid #27AE60;
     border-top: 1px solid #27AE60;
-    width: 100vw;
+    width: 99vw;
 
     ul {
       list-style: none;
@@ -206,12 +220,41 @@ main {
       flex-wrap: wrap;
       justify-content: space-between;
 
-      .book {
+      .livro {
         display: grid;
 
         img {
-          height: 30vw;
+          height: 28vw;
           width: 20vw;
+        }
+
+        button.botaoComprar {
+          margin-top: 1vw;
+          margin-bottom: 2vw;
+          padding: 0.8vw 1.2vw;
+          font-size: 1.1rem;
+          color: white;
+          border: none;
+          background-color: #27AE60;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5vw;
+        }
+
+        button.botaoComprar img {
+          height: 1.2vw;
+          width: auto;
+        }
+
+        button.botaoComprar p {
+          font-size: 1.3rem;
+          margin: 0;
+        }
+
+        button.botaoComprar:hover {
+          background-color: #219752;
         }
       }
     }
