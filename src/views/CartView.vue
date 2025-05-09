@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed } from 'vue'
-
 const frete = ref(0)
 
 const livros = ref([
@@ -10,7 +9,7 @@ const livros = ref([
     titulo: 'Chain of Iron: Volume 2',
     autor: 'Cassandra Clare',
     preco: 23.24,
-    quantidade: 0,
+    quantidade: 1,
     capa: 'https://m.media-amazon.com/images/I/81IP261kwlL._AC_UF1000,1000_QL80_.jpg',
   },
   {
@@ -19,7 +18,7 @@ const livros = ref([
     titulo: 'Chain of Thorns',
     autor: 'Cassandra Clare',
     preco: 46.48,
-    quantidade: 0,
+    quantidade: 1,
     capa: 'https://m.media-amazon.com/images/I/91298Zw5GdL._AC_UF1000,1000_QL80_.jpg',
   },
 ])
@@ -61,7 +60,7 @@ const desconto = computed(() => {
             </td>
             <td style="align-items: center">
               <div class="button">
-                <button v-if="livro.quantidade > 0" @click="livro.quantidade--">-</button>
+                <button v-if="livro.quantidade > 1" @click="livro.quantidade--">-</button>
                 <button v-else>-</button>
                 <p>{{ livro.quantidade }}</p>
                 <button @click="livro.quantidade++">+</button>

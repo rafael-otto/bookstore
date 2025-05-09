@@ -1,10 +1,10 @@
 <template>
     <header>
-        <div class="logotipo">
+        <RouterLink to="/"><div class="logotipo">
             <h1>IFbooks</h1>
             <hr>
             <h3>Apreço a<br>leitura</h3>
-        </div>
+        </div></RouterLink>
         <div class="barrapesquisa">
             <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
             <button><img src="../../public/header-img/Search.png" alt="botão de pesquisa"></button>
@@ -20,8 +20,8 @@
         <div class="direcionamentos">
             <ul>
                 <li>
-                    <a href=""><img src="../../public/header-img/Icon.png"
-                            alt="icone de direcionamento para o carrinho de compras"></a>
+                    <RouterLink to="/cart"><img src="../../public/header-img/Icon.png"
+                            alt="icone de direcionamento para o carrinho de compras"></RouterLink>
                 </li>
                 <hr>
                 <li>

@@ -1,7 +1,4 @@
 <script setup>
-import HeaderComponent from '../components/HeaderComponent.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
-
 const produtos = [
   {
     id: 1,
@@ -64,7 +61,6 @@ const produtos = [
 
 <template>
   <main>
-    <HeaderComponent />
     <section class="banner">
       <div class="text">
         <div class="autorMes">
@@ -120,7 +116,6 @@ const produtos = [
         </div>
       </div>
     </section>
-  <FooterComponent />
   </main>
 </template>
 <style scoped>
