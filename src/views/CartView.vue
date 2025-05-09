@@ -1,45 +1,44 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
 
-const frete = ref(0);
+const frete = ref(0)
 
 const livros = ref([
-    {
-        id: 1,
-        img: "",
-        titulo: "Chain of Iron: Volume 2",
-        autor: "Cassandra Clare",
-        preco: 23.24,
-        quantidade: 0,
-        capa: 'https://m.media-amazon.com/images/I/81IP261kwlL._AC_UF1000,1000_QL80_.jpg',
-    },
-    {
-        id: 2,
-        img: "",
-        titulo: "Chain of Thorns",
-        autor: "Cassandra Clare",
-        preco: 46.48,
-        quantidade: 0,
-        capa: 'https://m.media-amazon.com/images/I/91298Zw5GdL._AC_UF1000,1000_QL80_.jpg',
-    }
-]);
+  {
+    id: 1,
+    img: '',
+    titulo: 'Chain of Iron: Volume 2',
+    autor: 'Cassandra Clare',
+    preco: 23.24,
+    quantidade: 0,
+    capa: 'https://m.media-amazon.com/images/I/81IP261kwlL._AC_UF1000,1000_QL80_.jpg',
+  },
+  {
+    id: 2,
+    img: '',
+    titulo: 'Chain of Thorns',
+    autor: 'Cassandra Clare',
+    preco: 46.48,
+    quantidade: 0,
+    capa: 'https://m.media-amazon.com/images/I/91298Zw5GdL._AC_UF1000,1000_QL80_.jpg',
+  },
+])
 
-const texto = ref('');
+const texto = ref('')
 
 const total = computed(() => {
-   return livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
-});
+  return livros.value.reduce((total, livro) => total + livro.preco * livro.quantidade, 0)
+})
 
 const desconto = computed(() => {
-   let subtotal = livros.value.reduce((total, livro) => total + (livro.preco * livro.quantidade), 0);
-   return texto.value.toLowerCase() == "lrv10" ? subtotal - subtotal * 0.1 : subtotal;
-});
+  let subtotal = livros.value.reduce((total, livro) => total + livro.preco * livro.quantidade, 0)
+  return texto.value.toLowerCase() == 'lrv10' ? subtotal - subtotal * 0.1 : subtotal
+})
 </script>
 <template>
-    <div class="about">
-      <h1>Carrinho</h1>
-    </div>
-    <section class="table" v-for="(livro, id) in livros" :key="id">
+  <main>
+    <h1>Carrinho</h1>
+    <section class="table">
       <table>
         <thead>
           <tr>
@@ -49,54 +48,194 @@ const desconto = computed(() => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="(livro, id) in livros" :key="id">
             <td>
-              <img :src="livro.capa" alt="">
-              <div>
-                <h3>{{ livro.titulo }}</h3>
-                <p>{{ livro.autor }}</p>
-                <p>R$ {{ livro.preco }}</p>
+              <div class="livro">
+                <img :src="livro.capa" alt="" />
+                <div class="infos">
+                  <h3>{{ livro.titulo }}</h3>
+                  <p style="font-size: small">{{ livro.autor }}</p>
+                  <p style="font-weight: 600">R$ {{ livro.preco }}</p>
+                </div>
               </div>
             </td>
-            <td style="display: flex;">
-              <button v-if="livro.quantidade>0"  @click="livro.quantidade--">-</button>
-              <button v-else>-</button>
-              <p>{{ livro.quantidade }}</p>
-              <button @click="livro.quantidade++">+</button>
+            <td style="align-items: center">
+              <div class="button">
+                <button v-if="livro.quantidade > 0" @click="livro.quantidade--">-</button>
+                <button v-else>-</button>
+                <p>{{ livro.quantidade }}</p>
+                <button @click="livro.quantidade++">+</button>
+              </div>
             </td>
-            <td>R$ {{ (livro.preco * livro.quantidade).toFixed(2) }}</td>
+            <td>
+              <p class="preco">R$ {{ (livro.preco * livro.quantidade).toFixed(2) }}</p>
+            </td>
           </tr>
         </tbody>
       </table>
     </section>
-    <router-link to="/" exact><button>Voltar pra loja</button></router-link>
-    <section style="display: flex;">
-      <div>
-        <input 
-        type="text"
-        v-model="texto">
+    <router-link to="/" exact><button class="voltar">Voltar pra loja</button></router-link>
+    <section style="display: flex">
+      <div class="cupom">
+        <input type="text" v-model="texto" placeholder="Código do cupom" />
         <button type="submit">Inserir Cupom</button>
       </div>
-      <div id="total" style="border: 1px solid black;">
+      <div id="total" style="border: 1px solid black">
         <h3>Total da Compra</h3>
         <ul>
           <li>
-            <p>Produtos: R$ {{ total.toFixed(2).replace(".", ",") }}</p>
+            <p class="parametro">Produtos:</p>
+            <p>R$ {{ total.toFixed(2).replace('.', ',') }}</p>
           </li>
           <li>
-            <p v-if="frete == 0">Frete: GRÁTIS</p>
+            <p class="parametro">Frete:</p>
+            <p v-if="frete == 0">GRÁTIS</p>
             <p v-else>Frete: {{ frete }}</p>
           </li>
           <li>
-            <p>Total: R$ {{ desconto.toFixed(2).replace(".", ",") }}</p>
+            <p class="parametro">Total:</p>
+            <p>R$ {{ desconto.toFixed(2).replace('.', ',') }}</p>
           </li>
         </ul>
-        <a href="https://www.mercadopago.com.br/pix/home#from-section=menu"><button>Ir para o pagamento</button></a>
+        <a href="https://www.mercadopago.com.br/pix/home#from-section=menu"
+        style="text-decoration: none;"><button>Ir para o pagamento</button></a
+        >
       </div>
     </section>
-  </template>
-  <style scoped>
-    thead {
-      border-bottom: 1px solid #27AE60;
+  </main>
+</template>
+<style scoped>
+main {
+  margin: 10vw 5vw 10vw 5vw;
+}
+h1 {
+  color: #27ae60;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 2vw;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90vw;
+  height: 30vw;
+}
+/*table tr{
+  border: 1px solid green!important;
+}*/
+thead {
+  /*tr {
+    color: blueviolet;
+  }*/
+  th {
+    font-weight: bold;
+    border-bottom: 1px solid #27ae60;
+  }
+}
+tbody {
+  /*border: 1px solid green!important;*/
+  tr td {
+    border-bottom: 1px solid #c4c4c4;
+  }
+  img {
+    margin: 1vw;
+    height: 6vw;
+    width: 4vw;
+  }
+  .livro {
+    display: flex;
+    padding: 1vw 0 1vw 0;
+    div {
+      padding: 1vw 14vw 0 0;
     }
-  </style>
+    div h3 {
+      font-weight: 500;
+      font-family: 0.3rem;
+    }
+  }
+  .button {
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    height: 3vw;
+    button {
+      background-color: white;
+      border: none;
+      padding: 0 1.5vw 0 1.5vw;
+      cursor: pointer;
+    }
+  }
+  .preco {
+    padding-left: 17vw;
+    padding-right: 5vw;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+}
+.voltar {
+  margin: 2vw 0 0 0.5vw;
+  height: 3vw;
+  width: 14vw;
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+}
+.voltar:hover {
+  background-color: #27ae60;
+  color: white;
+}
+.cupom {
+  margin-top: 6vw;
+  input {
+    height: 3vw;
+    width: 20vw;
+    margin-right: 1vw;
+  }
+  ::placeholder {
+    padding-left: 1vw;
+  }
+  button {
+    color: white;
+    background-color: #27ae60;
+    height: 3vw;
+    width: 13vw;
+    border: none;
+    border-radius: 4px;
+  }
+}
+#total {
+  margin: 5vw 0 0 12vw;
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1vw;
+    text-align: left;
+    margin: 1vw 0 0 2vw;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+    border-bottom: 1px solid #c4c4c4;
+    margin-right: 2vw;
+  }
+  .parametro {
+    margin-right: 10vw;
+    padding-right: 7vw;
+  }
+  button {
+    color: white;
+    background-color: #27ae60;
+    height: 3vw;
+    width: 15vw;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: 2vw auto 2vw auto;
+  }
+}
+</style>
