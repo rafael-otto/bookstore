@@ -108,7 +108,7 @@ const produtos = [
           <img :src="livro.capa" alt="">
           <p class="titulo">{{ livro.titulo }}</p>
           <p class="autor">{{ livro.autor }}</p>
-          <p class="preco">R$ {{ livro.preco }}</p>
+          <p class="preco">R$ {{ livro.preco }} <img src="../../public/home-img/favorite.png" alt="Coração"></p>
           <button class="botaoComprar">
             <img src="../../public/home-img/cart.png" alt="comprar">
             <p>Comprar</p>
@@ -179,7 +179,7 @@ main {
     padding: 3vw 0 3vw 0;
     border-bottom: 1px solid #27AE60;
     border-top: 1px solid #27AE60;
-    width: 99vw;
+    width: 100%;
 
     ul {
       list-style: none;
@@ -226,6 +226,29 @@ main {
         img {
           height: 28vw;
           width: 20vw;
+        }
+
+        .titulo {
+          font-size: 1.5rem;
+          padding: 1vw 0 1vw 0;
+          font-weight: 700;
+        }
+
+        .autor {
+          color: #4F4C57;
+          padding-bottom: 0.2vw;
+        }
+
+        .preco {
+          font-weight: 700;
+          margin-bottom: 0.6vw;
+          font-size: 1.4rem;
+          img {
+            transform: translate(12vw, 0.35vw);
+            height: 1.9vw;
+            width: auto;
+            cursor: pointer;
+          }
         }
 
         button.botaoComprar {
