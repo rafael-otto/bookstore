@@ -39,10 +39,12 @@
 </template>
 <style scoped>
 header {
-    margin: 1vw 6vw 1vw 6vw;
+    padding: 1vw 6vw 1vw 6vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 1vw;
+    border-bottom: 1px solid #27AE60;
 }
 /*Logotipo*/
 .logotipo {
@@ -52,6 +54,7 @@ header {
 .logotipo h1 {
     padding-right: 0.5vw;
     font-size: 1.3rem;
+    color: black;
 }
 .logotipo hr {
     border: 1px solid #27AE60;
@@ -65,6 +68,7 @@ header {
 .barrapesquisa input,
 .barrapesquisa button {
     border: none;
+    cursor: pointer;
 }
 .barrapesquisa input {
     background-color: #f1f1f1;
@@ -87,6 +91,7 @@ header {
     color: #7B7881;
     padding: 0 4vw 0 0;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 /*Direcionamentos*/
 .direcionamentos ul {

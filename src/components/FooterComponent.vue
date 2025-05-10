@@ -31,7 +31,7 @@
                             <img src="../../public/footer-img/mail.png" alt="">
                             <p>contato@ifbooks.com</p>
                         </li>
-                    </ul> 
+                    </ul>
                 </div>
                 <ul class="payment">
                     <li>
@@ -55,7 +55,6 @@
 footer {
     background-color: #27AE60;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .geral {
     display: flex;

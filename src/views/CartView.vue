@@ -53,12 +53,12 @@ const desconto = computed(() => {
                 <img :src="livro.capa" alt="" />
                 <div class="infos">
                   <h3>{{ livro.titulo }}</h3>
-                  <p style="font-size: small">{{ livro.autor }}</p>
+                  <p style="color: #4F4C57;">{{ livro.autor }}</p>
                   <p style="font-weight: 600">R$ {{ livro.preco }}</p>
                 </div>
               </div>
             </td>
-            <td style="align-items: center">
+            <td>
               <div class="button">
                 <button v-if="livro.quantidade > 1" @click="livro.quantidade--">-</button>
                 <button v-else>-</button>
@@ -96,9 +96,8 @@ const desconto = computed(() => {
             <p>R$ {{ desconto.toFixed(2).replace('.', ',') }}</p>
           </li>
         </ul>
-        <a href="https://www.mercadopago.com.br/pix/home#from-section=menu"
-        style="text-decoration: none;"><button>Ir para o pagamento</button></a
-        >
+        <a href="https://www.mercadopago.com.br/pix/home#from-section=menu" style="text-decoration: none;"><button>Ir
+            para o pagamento</button></a>
       </div>
     </section>
   </main>
@@ -107,57 +106,69 @@ const desconto = computed(() => {
 main {
   margin: 10vw 5vw 10vw 5vw;
 }
+
 h1 {
   color: #27ae60;
   font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 2vw;
 }
+
 table {
   border-collapse: collapse;
   margin: 0 auto;
   width: 90vw;
   height: 30vw;
 }
-/*table tr{
-  border: 1px solid green!important;
-}*/
+
 thead {
-  /*tr {
-    color: blueviolet;
-  }*/
   th {
+    font-size: 1.2rem;
+    padding-bottom: 1.5vw;
     font-weight: bold;
     border-bottom: 1px solid #27ae60;
   }
 }
+
 tbody {
-  /*border: 1px solid green!important;*/
   tr td {
     border-bottom: 1px solid #c4c4c4;
   }
+
   img {
     margin: 1vw;
-    height: 6vw;
-    width: 4vw;
+    height: 15vw;
+    width: auto;
   }
+
   .livro {
     display: flex;
     padding: 1vw 0 1vw 0;
+
     div {
       padding: 1vw 14vw 0 0;
     }
+
     div h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1vw;
       font-weight: 500;
       font-family: 0.3rem;
     }
+
+    p {
+      margin-bottom: 1vw;
+    }
   }
+
   .button {
     display: flex;
     border: 1px solid black;
     justify-content: center;
     align-items: center;
-    height: 3vw;
+    padding: 1vw;
+    transform: translateY(-7vw);
+
     button {
       background-color: white;
       border: none;
@@ -165,13 +176,16 @@ tbody {
       cursor: pointer;
     }
   }
+
   .preco {
     padding-left: 17vw;
     padding-right: 5vw;
     font-weight: 700;
     font-size: 1.1rem;
+    transform: translate(-3.5vw, -7vw);
   }
 }
+
 .voltar {
   margin: 2vw 0 0 0.5vw;
   height: 3vw;
@@ -179,21 +193,30 @@ tbody {
   background-color: white;
   border: 1px solid #c4c4c4;
   border-radius: 4px;
+  font-size: 1.1rem;
 }
+
 .voltar:hover {
   background-color: #27ae60;
   color: white;
 }
+
 .cupom {
   margin-top: 6vw;
+
   input {
     height: 3vw;
     width: 20vw;
     margin-right: 1vw;
+    align-items: center;
+    font-size: 1.2rem;
   }
-  ::placeholder {
-    padding-left: 1vw;
+
+  input::placeholder {
+    margin-left: 5vw;
+    font-size: 1.2rem;
   }
+
   button {
     color: white;
     background-color: #27ae60;
@@ -201,31 +224,42 @@ tbody {
     width: 13vw;
     border: none;
     border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #219752;
   }
 }
+
 #total {
   margin: 5vw 0 0 12vw;
+  padding: 2vw;
+
   h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: 1vw;
+    padding: 0 0 1vw 0;
     text-align: left;
-    margin: 1vw 0 0 2vw;
   }
+
   ul {
     list-style: none;
   }
+
   li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2vw;
+    padding: 1vw 0 1vw 0;
     border-bottom: 1px solid #c4c4c4;
-    margin-right: 2vw;
   }
+
   .parametro {
     margin-right: 10vw;
     padding-right: 7vw;
   }
+
   button {
     color: white;
     background-color: #27ae60;
@@ -234,7 +268,13 @@ tbody {
     border: none;
     border-radius: 4px;
     display: block;
-    margin: 2vw auto 2vw auto;
+    margin: 2vw auto 0 auto;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #219752;
   }
 }
 </style>
